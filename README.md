@@ -1,3 +1,4 @@
+```terraform
 .
 ├── main.tf
 ├── variables.tf
@@ -19,4 +20,4 @@
         ├── main.tf
         ├── variables.tf
         └── outputs.tf
-
+```
