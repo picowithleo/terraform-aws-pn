@@ -46,3 +46,9 @@ variable "alias_target" {
   })
   default = null
 }
+
+variable "ttl" {
+  type        = number
+  description = "The TTL of the Route53 record."
+  default     = 300
+}
