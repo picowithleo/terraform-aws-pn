@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "this" {
-  bucket = var.bucket_name
+  # bucket = var.bucket_name
+  bucket = "${var.bucket_name_prefix}-${var.domain_name}"
 }
 
 resource "aws_s3_bucket_acl" "this" {
