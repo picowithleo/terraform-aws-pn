@@ -11,7 +11,8 @@
     ├── certificate
     │   ├── main.tf
     │   ├── variables.tf
-    │   └── outputs.tf
+    │   ├── outputs.tf
+    │   └── versions.tf
     ├── dns
     │   ├── main.tf
     │   ├── variables.tf
