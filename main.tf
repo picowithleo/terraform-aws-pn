@@ -48,13 +48,15 @@ module "uat_cert" {
 #   zone_id         = data.aws_route53_zone.existing_zone.zone_id
 #   domain_validation_options = module.uat_cert.domain_validation_options
 # }
+
 module "uat_dns_validation_record" {
   source = "./modules/dns"
   zone_id      = data.aws_route53_zone.existing_zone.zone_id
-  name         = module.uat_cert.domain_validation_options[0].resource_record_name
-  record_type  = module.uat_cert.domain_validation_options[0].resource_record_type
-  record_values = [module.uat_cert.domain_validation_options[0].resource_record_value]
+  name         = element(module.uat_cert.domain_validation_options.*.resource_record_name, 0)
+  record_type  = element(module.uat_cert.domain_validation_options.*.resource_record_type, 0)
+  record_values = [element(module.uat_cert.domain_validation_options.*.resource_record_value, 0)]
 }
+
 
 # module "uat_frontend_record" {
 #   source = "./modules/dns"
